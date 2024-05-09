@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Тюлячкина Мария</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        img {
+            display: block;
+            margin-bottom: 20px;
+        }
+        .developer {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: grey;
+        }
+    </style>
+</head>
+<body>
+    <h1>Вычисление функции</h1>
+    <img src="z2.png" alt="Формула функции">
+    <button onclick="calculateFunction()">Вычислить функцию</button>
+    <div id="result"></div>
+    <div class="developer">
+        Разработчик: Тюлячкина Мария
+    </div>
+    <script>
+        function calculateFunction() {
+            const x = parseFloat(prompt("Введите значение x:"));
+            const y = parseFloat(prompt("Введите значение y:"));
+            const z = parseFloat(prompt("Введите значение z:"));
+            if (isNaN(x) || isNaN(y) || isNaN(z)) {
+                alert("Пожалуйста, введите корректные числовые значения.");
+                return;
+            }
+            const b = 1 + ((x * x + 1) / (3 + y * y)) + Math.sin(2 * z);
+            document.getElementById('result').innerHTML = `<p>Результат вычисления: <strong>${b.toFixed(4)}</strong></p>`;
+        }
+    </script>
+</body>
+</html>

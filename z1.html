@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Тюлячкина Мария</title>
+    <style>
+        .day {
+            font-family: Arial, sans-serif;
+            transition: all 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div id="weekDays"></div>
+    <script>
+        function weekDay(size, day, color) {
+            const dayElement = document.createElement('div');
+            dayElement.className = 'day';
+            dayElement.style.fontSize = `${size}px`;
+            dayElement.style.color = color;
+            dayElement.textContent = day;
+            return dayElement;
+        }
+        const days = [
+            { day: 'Понедельник', color: 'red' },
+            { day: 'Вторник', color: 'orange' },
+            { day: 'Среда', color: 'yellow' },
+            { day: 'Четверг', color: 'green' },
+            { day: 'Пятница', color: 'blue' },
+            { day: 'Суббота', color: 'indigo' },
+            { day: 'Воскресенье', color: 'violet' }
+        ];
+        const container = document.getElementById('weekDays');
+        let initialSize = 28; 
+        days.forEach((item, index) => {
+            container.appendChild(weekDay(initialSize - index * 4, item.day, item.color));
+        });
+    </script>
+</body>
+</html>

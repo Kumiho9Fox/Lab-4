@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Тюлячкина Мария</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        img {
+            display: block;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Вычисление значения функции с помощью ряда Тейлора</h1>
+    <img src="z3.png" alt="Ряд Тейлора для функции">
+    <button onclick="calculateTaylorSeries()">Вычислить значение</button>
+    <div id="result"></div>
+    <script>
+        function factorial(n) {
+            if (n === 0) return 1;
+            return n * factorial(n - 1);
+        }
+        function taylorSeries(x, n = 0, maxTerms = 20) {
+            if (n === maxTerms) return 0;
+            let term = Math.pow(-1, n) * Math.pow(x, n) / factorial(n);
+            return term + taylorSeries(x, n + 1, maxTerms);
+        }
+        function calculateTaylorSeries() {
+            const x = parseFloat(prompt("Введите значение x:"));
+            if (isNaN(x)) {
+                alert("Пожалуйста, введите корректное числовое значение.");
+                return;
+            }
+            const result = taylorSeries(x);
+            document.getElementById('result').innerHTML = `<p>Результат: <strong>${result.toFixed(4)}</strong></p>`;
+        }
+    </script>
+</body>
+</html>
